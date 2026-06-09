@@ -1,4 +1,5 @@
 package TicTacToe.strategies;
 
-public class WinningStrategy {
+public interface WinningStrategy {
+    public void checkWinner();
 }
