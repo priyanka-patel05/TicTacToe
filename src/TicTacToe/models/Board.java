@@ -38,4 +38,12 @@ public class Board {
 
         this.grid = grid;
     }
+    public void display(){
+        for(List<Cell> row:grid){
+            for (cell cell:row){
+              cell.display();
+            }
+            System.out.println();
+        }
+    }
 }

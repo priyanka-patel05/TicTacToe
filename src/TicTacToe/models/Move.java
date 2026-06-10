@@ -7,7 +7,7 @@ public class Move {
     //constructor of move class
     public Move(Cell cell, Player player){
         this.cell= cell;
-        this.player = player
+        this.player = player;
     }
 
     public Cell getCell() {

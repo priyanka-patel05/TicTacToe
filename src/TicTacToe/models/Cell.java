@@ -9,7 +9,7 @@ public class Cell {
     //making of a cell
     public Cell(int i, int j){
         this.row = i;
-        tjis.col = j;
+        this.col = j;
         this.cellstate = CellState.EMPTY;
         this.symbol = null;
     }
@@ -45,5 +45,13 @@ public class Cell {
 
     public void setSymbol(Symbol symbol) {
         this.symbol = symbol;
+    }
+    public void display(){
+        if(symbol!= null){
+            System.out.println("|" + symbol.getSym() + "|");
+        }else {
+            System.out.println("|-|");
+        }
+
     }
 }
