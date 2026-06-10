@@ -40,7 +40,7 @@ public class Board {
     }
     public void display(){
         for(List<Cell> row:grid){
-            for (cell cell:row){
+            for (Cell cell:row){
               cell.display();
             }
             System.out.println();
