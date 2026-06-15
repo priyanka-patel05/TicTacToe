@@ -16,6 +16,7 @@ public class Cell {
 
 
     public int getRow() {
+
         return row;
     }
 
@@ -32,10 +33,12 @@ public class Cell {
     }
 
     public CellState getCellstate() {
+
         return cellstate;
     }
 
     public void setCellstate(CellState cellstate) {
+
         this.cellstate = cellstate;
     }
 
@@ -48,10 +51,12 @@ public class Cell {
     }
     public void display(){
         if(symbol!= null){
-            System.out.println("|" + symbol.getSym() + "|");
+            System.out.print("| " +  symbol.getSym() + " |");
         }else {
-            System.out.println("|-|");
+            System.out.print("| - |");
         }
 
     }
+
+
 }

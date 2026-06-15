@@ -1,10 +1,13 @@
 package TicTacToe.models;
 
+import java.util.Scanner;
+
 public class Player {
     private int id;
     private String name;
     private PlayerType playerType;
     private Symbol symbol;
+    private Scanner scn = new Scanner(System.in);
 
 
 
@@ -13,6 +16,7 @@ public class Player {
         this.name = name;
         this.playerType = playerType;
         this.symbol = symbol;
+
 
     }
 
@@ -46,5 +50,12 @@ public class Player {
 
     public void setSymbol(Symbol symbol) {
         this.symbol = symbol;
+    }
+    public Move makeMove(Board board){
+        System.out.println("please enter the row where you want to place the symbol");
+        int r= scn.nextInt();
+        System.out.println("please enter the col where you want to place the symbol");
+        int c = scn.nextInt();
+        return new Move(new Cell(r,c), this);
     }
 }

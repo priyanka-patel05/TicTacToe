@@ -13,17 +13,22 @@ public class GameController {
         List<Player> players ,
         List<WinningStrategy> winningStrategies
         ) {
-        return new Game();
+        return Game.getBuilder().
+        setDimension(dimension).
+        setPlayers(players).
+        setWinningStrategies(winningStrategies).build();
     }
     public GameState checkState(Game game){
-        return null;
+        return game.getGameState();
 
     }
     public void makeMove(Game game){
+        game.makeMove();
+
 
     }
     public void display (Game game) {
-        return game.getdisplay();
+        game.displayBoard();
     }
     public Player getWinner(Game game){
         return game.getWinner();
