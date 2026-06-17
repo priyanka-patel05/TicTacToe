@@ -161,6 +161,30 @@ public class Game {
         }
 
     }
+    public void undo(){
+        if(moves.isEmpty()){
+            System.out.println("Nothing to Undo");
+            return;
+        }
+
+        Move lastMove = moves.get(moves.size()-1);
+        moves.remove(moves.size()-1);
+
+        lastMove.getCell().setCellstate(CellState.EMPTY);
+        lastMove.getCell().setSymbol(null);
+
+        nextPlayerIndex--;
+        // (a-b) % n = (a-b+n)%n;
+
+        nextPlayerIndex = (nextPlayerIndex+ players.size()) % players.size();
+
+        for(WinningStrategy strategy:winningStrategies){
+            strategy.handleUndo(board,lastMove);
+        }
+
+        setGameState(GameState.IN_PROGRESS);
+        setWinner(null);
+    }
     public static class Builder{
         private int dimension;
         private List<Player> players;

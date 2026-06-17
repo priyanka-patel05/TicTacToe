@@ -6,8 +6,10 @@ import TicTacToe.strategies.RowWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Client {
+    static Scanner scn = new Scanner(System.in);
     public static void main(String[] args){
         GameController gc = new GameController();
         //Game g = gc.startgame();
@@ -27,7 +29,15 @@ public class Client {
             gc.makeMove(game);
             gc.display(game);
 
+            System.out.println("do you want to udo?[Y/N]");
+            String undoAnswer = scn.nextLine();
+            if(undoAnswer.equals("Y")) {
+                gc.Undo(game);
+                System.out.println("Undo is successfull!");
+                gc.display(game);
+            }
         }
+
         if(gc.checkState(game).equals(GameState.SUCCESS)){
             System.out.println(gc.getWinner(game).getName() +"won the game");
         }else if(gc.checkState(game).equals(GameState.DRAW)){
