@@ -16,7 +16,7 @@ public class GameController {
         return Game.getBuilder().
         setDimension(dimension).
         setPlayers(players).
-        setWinningStrategies(winningStrategies).build();
+        setwinningStrategies(winningStrategies).build();
     }
     public GameState checkState(Game game){
         return game.getGameState();
@@ -34,7 +34,6 @@ public class GameController {
         return game.getWinner();
     }
     public void Undo(){
-
 
     }
 }

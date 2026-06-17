@@ -25,6 +25,7 @@ public class Client {
         gc.display(game);
         while(gc.checkState(game).equals(GameState.IN_PROGRESS)){
             gc.makeMove(game);
+            gc.display(game);
 
         }
         if(gc.checkState(game).equals(GameState.SUCCESS)){

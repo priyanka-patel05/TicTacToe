@@ -4,7 +4,12 @@ import TicTacToe.strategies.WinningStrategy;
 
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+
+//import static sun.security.util.KeyUtil.validate;
 
 public class Game {
     private Board board;
@@ -85,9 +90,11 @@ public class Game {
     }
 
     public static Builder getBuilder(){
+
         return new Builder();
     }
     public void displayBoard(){
+
         board.display();
     }
 
@@ -175,6 +182,35 @@ public class Game {
             return this;
         }
 
+        private void validate(){
+            //1,check player count
+            if(players.size()!=dimension-1){
+                throw new RuntimeException("Invalid player count");
+            }
+            //we wnat only one bot in the game
+            int botCount = 0;
+            for(Player player : players){
+                if(player.getPlayerType().equals(PlayerType.BOT)){
+                    botCount++;
+                }
+            }
+            if(botCount>1){
+                throw new RuntimeException("More than one bot not allowed!");
+            }
+            //3. every player should have a separate symbol
+            Set<Character> symbolSet = new java.util.HashSet<>();
+            for(Player player:players){
+                if(symbolSet.contains(player.getSymbol().getSym())){
+                    throw new RuntimeException("Multiple players have the same Symbol");
+                }
+                symbolSet.add(player.getSymbol().getSym());
+            }
+        }
 
+
+        public Game build() {
+            validate();
+            return new Game(this);
+        }
     }
     }
